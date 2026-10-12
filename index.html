@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>상식 퀴즈</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="sheet">
+    <div id="error-banner" class="error-banner" role="alert" hidden></div>
+
+    <section id="screen-categories" class="screen" hidden>
+      <h1>상식 퀴즈</h1>
+      <p class="lead">카테고리를 고르면 10문제가 나옵니다. 답을 고르면 바로 정답과 해설을 볼 수 있어요.</p>
+      <div id="category-list" class="category-list"></div>
+      <button id="btn-board" type="button" class="secondary">순위표 보기</button>
+    </section>
+
+    <section id="screen-mode" class="screen" hidden>
+      <p id="mode-category" class="progress"></p>
+      <h1>모드 선택</h1>
+      <p class="lead">어떤 방식으로 풀어 볼까요?</p>
+      <div id="mode-list" class="category-list"></div>
+      <button id="btn-mode-back" type="button" class="link-button back">뒤로</button>
+    </section>
+
+    <section id="screen-board" class="screen" hidden>
+      <h1>순위표</h1>
+      <p class="lead">스피드·힌트 모드의 상위 10건이에요. 연습 모드는 기록되지 않아요.</p>
+      <div id="board-mode-tabs" class="tabs" role="group" aria-label="모드"></div>
+      <div id="board-category-tabs" class="tabs" role="group" aria-label="카테고리"></div>
+      <p id="board-title" class="progress"></p>
+      <table id="board-table" class="board-table">
+        <thead><tr><th>순위</th><th>닉네임</th><th>점수</th><th>날짜</th></tr></thead>
+        <tbody id="board-body"></tbody>
+      </table>
+      <p id="board-empty" class="notice" hidden>아직 기록이 없어요</p>
+      <p id="board-error" class="error-text" hidden>기록을 불러올 수 없어요 (브라우저 저장소를 쓸 수 없음)</p>
+      <div id="board-nickname-form" class="nickname-form">
+        <label for="board-nickname-input">내 닉네임: <span id="board-nickname"></span></label>
+        <input id="board-nickname-input" type="text" maxlength="24" autocomplete="off">
+        <button id="btn-board-nickname" type="button" class="secondary">닉네임 변경</button>
+        <p id="board-nickname-error" class="error-text" hidden></p>
+      </div>
+      <button id="btn-board-back" type="button" class="link-button back">뒤로</button>
+    </section>
+
+    <section id="screen-quiz" class="screen" hidden>
+      <div class="quiz-head">
+        <p id="progress" class="progress"></p>
+        <button id="btn-quit" type="button" class="link-button">그만두기</button>
+      </div>
+      <div class="quiz-status">
+        <p id="mode-label" class="mode-label"></p>
+        <p id="live-score" class="live-score"></p>
+        <p id="timer" class="timer" hidden></p>
+      </div>
+      <p id="quiz-notice" class="notice" hidden></p>
+      <h2 id="question" class="question"></h2>
+      <button id="btn-hint" type="button" class="hint-button" hidden>힌트 (문항마다 1번)</button>
+      <div id="choices" class="choices"></div>
+      <div id="explanation" class="explanation" hidden></div>
+      <button id="btn-next" type="button" class="primary" hidden>다음</button>
+    </section>
+
+    <section id="screen-result" class="screen" hidden>
+      <h1>결과</h1>
+      <p id="result-category" class="lead"></p>
+      <p id="score" class="score"></p>
+      <p id="result-detail" class="lead"></p>
+      <p id="result-notice" class="notice"></p>
+      <p id="record-status" class="record-status"></p>
+      <div id="nickname-form" class="nickname-form" hidden>
+        <label for="nickname-input">순위표에 올릴 닉네임 (1~12자)</label>
+        <input id="nickname-input" type="text" maxlength="24" autocomplete="off">
+        <button id="btn-nickname-save" type="button" class="secondary">기록하기</button>
+        <p id="nickname-error" class="error-text" hidden></p>
+      </div>
+      <button id="btn-retry" type="button" class="secondary" hidden>틀린 문제 다시 풀기</button>
+      <p id="retry-note" class="notice"></p>
+      <button id="btn-result-board" type="button" class="secondary" hidden>순위표 보기</button>
+      <button id="btn-home" type="button" class="primary">처음으로</button>
+    </section>
+
+    <section id="screen-retry-done" class="screen" hidden>
+      <h1 id="retry-done-title">복습 완료</h1>
+      <p class="lead">틀렸던 문제를 모두 맞혔어요.</p>
+      <p id="retry-done-notice" class="notice"></p>
+      <button id="btn-retry-home" type="button" class="primary">처음으로</button>
+    </section>
+  </main>
+  <footer id="student-info" class="student-info">학번·이름: 2601946 설소희</footer>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
